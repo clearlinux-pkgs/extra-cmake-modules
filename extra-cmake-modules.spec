@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.90.0
-Release  : 71
+Release  : 72
 URL      : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz.sig
@@ -38,6 +38,7 @@ BuildRequires : python3-dev
 BuildRequires : qtbase-dev
 BuildRequires : qtdeclarative-dev
 BuildRequires : qttools-dev
+Patch1: better-xdg-dir.patch
 
 %description
 # Extra CMake Modules
@@ -83,13 +84,14 @@ man components for the extra-cmake-modules package.
 %prep
 %setup -q -n extra-cmake-modules-5.90.0
 cd %{_builddir}/extra-cmake-modules-5.90.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641947715
+export SOURCE_DATE_EPOCH=1643434047
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,7 +114,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1641947715
+export SOURCE_DATE_EPOCH=1643434047
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-5.90.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987

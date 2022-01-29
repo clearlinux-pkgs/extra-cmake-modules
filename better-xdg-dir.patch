@@ -1,6 +1,8 @@
---- extra-cmake-modules-5.49.0/kde-modules/KDEInstallDirs.cmake~	2018-08-04 08:36:56.000000000 +0000
-+++ extra-cmake-modules-5.49.0/kde-modules/KDEInstallDirs.cmake	2018-08-28 02:23:09.784853200 +0000
-@@ -641,7 +641,7 @@
+diff --git a/kde-modules/KDEInstallDirsCommon.cmake b/kde-modules/KDEInstallDirsCommon.cmake
+index bc98a3e..a7eb685 100644
+--- a/kde-modules/KDEInstallDirsCommon.cmake
++++ b/kde-modules/KDEInstallDirsCommon.cmake
+@@ -359,7 +359,7 @@ endif()
  _define_absolute(SYSCONFDIR "${_default_sysconf_dir}"
      "read-only single-machine data"
      SYSCONF_INSTALL_DIR)
