@@ -2,7 +2,6 @@
 SFML
 Vulkan-Loader
 Vulkan-Tools
-Vulkan-ValidationLayers
 akonadi
 akonadi-mime
 baloo
@@ -13,6 +12,7 @@ cantor
 compat-webkitgtk-soname40
 darktable
 digikam
+freedv
 glfw
 kbackup
 kcodecs
@@ -31,7 +31,6 @@ khtml
 kidletime
 kimageformats
 kimap
-kinfocenter
 kinit
 kio-extras
 kitinerary

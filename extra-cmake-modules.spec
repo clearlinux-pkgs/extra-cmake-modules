@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.90.0
-Release  : 72
-URL      : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz.sig
+Version  : 5.91.0
+Release  : 73
+URL      : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -36,7 +36,6 @@ BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pypi-sphinx
 BuildRequires : python3-dev
 BuildRequires : qtbase-dev
-BuildRequires : qtdeclarative-dev
 BuildRequires : qttools-dev
 Patch1: better-xdg-dir.patch
 
@@ -82,8 +81,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.90.0
-cd %{_builddir}/extra-cmake-modules-5.90.0
+%setup -q -n extra-cmake-modules-5.91.0
+cd %{_builddir}/extra-cmake-modules-5.91.0
 %patch1 -p1
 
 %build
@@ -91,7 +90,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643434047
+export SOURCE_DATE_EPOCH=1644794401
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -114,14 +113,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1643434047
+export SOURCE_DATE_EPOCH=1644794401
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.90.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.90.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/extra-cmake-modules-5.90.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/extra-cmake-modules-5.90.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/extra-cmake-modules-5.90.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.91.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
 pushd clr-build
 %make_install
 popd
@@ -202,9 +201,11 @@ popd
 /usr/share/ECM/modules/ECMConfiguredInstall.cmake
 /usr/share/ECM/modules/ECMCoverageOption.cmake
 /usr/share/ECM/modules/ECMCreateQmFromPoFiles.cmake
+/usr/share/ECM/modules/ECMDeprecationSettings.cmake
 /usr/share/ECM/modules/ECMEnableSanitizers.cmake
 /usr/share/ECM/modules/ECMFindModuleHelpers.cmake
-/usr/share/ECM/modules/ECMFindQMLModule.cmake.in
+/usr/share/ECM/modules/ECMFindQmlModule.cmake
+/usr/share/ECM/modules/ECMFindQmlModule.cmake.in
 /usr/share/ECM/modules/ECMGenerateDBusServiceFile.cmake
 /usr/share/ECM/modules/ECMGenerateExportHeader.cmake
 /usr/share/ECM/modules/ECMGenerateHeaders.cmake
@@ -221,6 +222,11 @@ popd
 /usr/share/ECM/modules/ECMQchDoxygen.config.in
 /usr/share/ECM/modules/ECMQchDoxygenLayout.xml
 /usr/share/ECM/modules/ECMQmLoader.cpp.in
+/usr/share/ECM/modules/ECMQmlModule.cmake
+/usr/share/ECM/modules/ECMQmlModule.cpp.in
+/usr/share/ECM/modules/ECMQmlModule.cpp.in.license
+/usr/share/ECM/modules/ECMQmlModule.h.in
+/usr/share/ECM/modules/ECMQmlModule.h.in.license
 /usr/share/ECM/modules/ECMQtDeclareLoggingCategory.cmake
 /usr/share/ECM/modules/ECMQtDeclareLoggingCategory.cpp.in
 /usr/share/ECM/modules/ECMQtDeclareLoggingCategory.h.in
@@ -301,6 +307,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMConfiguredInstall.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCoverageOption.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCreateQmFromPoFiles.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMDeprecationSettings.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMEnableSanitizers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMFindModuleHelpers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateDBusServiceFile.rst.txt
@@ -398,6 +405,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMConfiguredInstall.html
 /usr/share/doc/ECM/html/module/ECMCoverageOption.html
 /usr/share/doc/ECM/html/module/ECMCreateQmFromPoFiles.html
+/usr/share/doc/ECM/html/module/ECMDeprecationSettings.html
 /usr/share/doc/ECM/html/module/ECMEnableSanitizers.html
 /usr/share/doc/ECM/html/module/ECMFindModuleHelpers.html
 /usr/share/doc/ECM/html/module/ECMGenerateDBusServiceFile.html
