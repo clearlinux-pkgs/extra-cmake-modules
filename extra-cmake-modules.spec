@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.91.0
-Release  : 73
-URL      : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.91/extra-cmake-modules-5.91.0.tar.xz.sig
+Version  : 5.92.0
+Release  : 74
+URL      : https://download.kde.org/stable/frameworks/5.92/extra-cmake-modules-5.92.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.92/extra-cmake-modules-5.92.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.92/extra-cmake-modules-5.92.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -81,8 +81,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.91.0
-cd %{_builddir}/extra-cmake-modules-5.91.0
+%setup -q -n extra-cmake-modules-5.92.0
+cd %{_builddir}/extra-cmake-modules-5.92.0
 %patch1 -p1
 
 %build
@@ -90,7 +90,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644794401
+export SOURCE_DATE_EPOCH=1647271932
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,14 +113,19 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1644794401
+export SOURCE_DATE_EPOCH=1647271932
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.91.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/extra-cmake-modules-5.91.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.92.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.92.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/extra-cmake-modules-5.92.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/extra-cmake-modules-5.92.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/extra-cmake-modules-5.92.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.92.0/modules/ECMQmlModule.cpp.in.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
+cp %{_builddir}/extra-cmake-modules-5.92.0/modules/ECMQmlModule.h.in.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
+cp %{_builddir}/extra-cmake-modules-5.92.0/tests/ECMQmlModuleTest/qmldir_expected_depends.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
+cp %{_builddir}/extra-cmake-modules-5.92.0/tests/ECMQmlModuleTest/qmldir_expected_full.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
+cp %{_builddir}/extra-cmake-modules-5.92.0/tests/ECMQmlModuleTest/qmldir_expected_qmlonly.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
 pushd clr-build
 %make_install
 popd
@@ -299,6 +304,7 @@ popd
 /usr/share/doc/ECM/html/_sources/manual/ecm-modules.7.rst.txt
 /usr/share/doc/ECM/html/_sources/manual/ecm-toolchains.7.rst.txt
 /usr/share/doc/ECM/html/_sources/manual/ecm.7.rst.txt
+/usr/share/doc/ECM/html/_sources/module/CheckAtomic.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddAppIcon.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddQch.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddQtDesignerPlugin.rst.txt
@@ -310,6 +316,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMDeprecationSettings.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMEnableSanitizers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMFindModuleHelpers.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMFindQmlModule.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateDBusServiceFile.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateExportHeader.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateHeaders.rst.txt
@@ -322,7 +329,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMOptionalAddSubdirectory.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMPackageConfigHelpers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMPoQmTools.rst.txt
-/usr/share/doc/ECM/html/_sources/module/ECMQMLModules.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMQmlModule.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMQtDeclareLoggingCategory.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupQtPluginMacroNames.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupVersion.rst.txt
@@ -330,6 +337,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMUninstallTarget.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMUseFindModules.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
+/usr/share/doc/ECM/html/_sources/module/QtVersionOption.rst.txt
 /usr/share/doc/ECM/html/_sources/toolchain/Android.rst.txt
 /usr/share/doc/ECM/html/_static/basic.css
 /usr/share/doc/ECM/html/_static/classic.css
@@ -397,6 +405,7 @@ popd
 /usr/share/doc/ECM/html/manual/ecm-modules.7.html
 /usr/share/doc/ECM/html/manual/ecm-toolchains.7.html
 /usr/share/doc/ECM/html/manual/ecm.7.html
+/usr/share/doc/ECM/html/module/CheckAtomic.html
 /usr/share/doc/ECM/html/module/ECMAddAppIcon.html
 /usr/share/doc/ECM/html/module/ECMAddQch.html
 /usr/share/doc/ECM/html/module/ECMAddQtDesignerPlugin.html
@@ -408,6 +417,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMDeprecationSettings.html
 /usr/share/doc/ECM/html/module/ECMEnableSanitizers.html
 /usr/share/doc/ECM/html/module/ECMFindModuleHelpers.html
+/usr/share/doc/ECM/html/module/ECMFindQmlModule.html
 /usr/share/doc/ECM/html/module/ECMGenerateDBusServiceFile.html
 /usr/share/doc/ECM/html/module/ECMGenerateExportHeader.html
 /usr/share/doc/ECM/html/module/ECMGenerateHeaders.html
@@ -420,7 +430,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMOptionalAddSubdirectory.html
 /usr/share/doc/ECM/html/module/ECMPackageConfigHelpers.html
 /usr/share/doc/ECM/html/module/ECMPoQmTools.html
-/usr/share/doc/ECM/html/module/ECMQMLModules.html
+/usr/share/doc/ECM/html/module/ECMQmlModule.html
 /usr/share/doc/ECM/html/module/ECMQtDeclareLoggingCategory.html
 /usr/share/doc/ECM/html/module/ECMSetupQtPluginMacroNames.html
 /usr/share/doc/ECM/html/module/ECMSetupVersion.html
@@ -428,6 +438,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMUninstallTarget.html
 /usr/share/doc/ECM/html/module/ECMUseFindModules.html
 /usr/share/doc/ECM/html/module/ECMWinResolveSymlinks.html
+/usr/share/doc/ECM/html/module/QtVersionOption.html
 /usr/share/doc/ECM/html/search.html
 /usr/share/doc/ECM/html/searchindex.js
 /usr/share/doc/ECM/html/toolchain/Android.html
@@ -438,6 +449,7 @@ popd
 /usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
 /usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files man
