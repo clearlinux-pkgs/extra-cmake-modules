@@ -18,7 +18,6 @@ kbackup
 kcodecs
 kcoreaddons
 kde-cli-tools
-kdeconnect-kde
 kdelibs4support
 kdenlive
 kdepim-runtime
@@ -35,6 +34,7 @@ kinit
 kio-extras
 kitinerary
 kldap
+kleopatra
 kmail-account-wizard
 kpkpass
 krita
