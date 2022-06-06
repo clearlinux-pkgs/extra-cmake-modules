@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.94.0
-Release  : 76
+Release  : 77
 URL      : https://download.kde.org/stable/frameworks/5.94/extra-cmake-modules-5.94.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.94/extra-cmake-modules-5.94.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.94/extra-cmake-modules-5.94.0.tar.xz.sig
@@ -35,6 +35,7 @@ BuildRequires : pkgconfig(wayland-protocols)
 BuildRequires : pkgconfig(x11-xcb)
 BuildRequires : pypi-sphinx
 BuildRequires : python3-dev
+BuildRequires : qt6base-dev
 BuildRequires : qtbase-dev
 BuildRequires : qttools-dev
 Patch1: better-xdg-dir.patch
@@ -90,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1652646439
+export SOURCE_DATE_EPOCH=1654526544
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +114,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1652646439
+export SOURCE_DATE_EPOCH=1654526544
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-5.94.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
@@ -343,6 +344,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
 /usr/share/doc/ECM/html/_sources/module/QtVersionOption.rst.txt
 /usr/share/doc/ECM/html/_sources/toolchain/Android.rst.txt
+/usr/share/doc/ECM/html/_static/_sphinx_javascript_frameworks_compat.js
 /usr/share/doc/ECM/html/_static/basic.css
 /usr/share/doc/ECM/html/_static/classic.css
 /usr/share/doc/ECM/html/_static/default.css
@@ -350,7 +352,7 @@ popd
 /usr/share/doc/ECM/html/_static/documentation_options.js
 /usr/share/doc/ECM/html/_static/ecm.css
 /usr/share/doc/ECM/html/_static/file.png
-/usr/share/doc/ECM/html/_static/jquery-3.5.1.js
+/usr/share/doc/ECM/html/_static/jquery-3.6.0.js
 /usr/share/doc/ECM/html/_static/jquery.js
 /usr/share/doc/ECM/html/_static/kde-favicon.ico
 /usr/share/doc/ECM/html/_static/language_data.js
