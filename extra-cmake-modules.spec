@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.101.0
-Release  : 84
-URL      : https://download.kde.org/stable/frameworks/5.101/extra-cmake-modules-5.101.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.101/extra-cmake-modules-5.101.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.101/extra-cmake-modules-5.101.0.tar.xz.sig
+Version  : 5.102.0
+Release  : 85
+URL      : https://download.kde.org/stable/frameworks/5.102/extra-cmake-modules-5.102.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.102/extra-cmake-modules-5.102.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.102/extra-cmake-modules-5.102.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -38,6 +38,9 @@ BuildRequires : python3-dev
 BuildRequires : qt6base-dev
 BuildRequires : qtbase-dev
 BuildRequires : qttools-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: better-xdg-dir.patch
 
 %description
@@ -82,8 +85,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.101.0
-cd %{_builddir}/extra-cmake-modules-5.101.0
+%setup -q -n extra-cmake-modules-5.102.0
+cd %{_builddir}/extra-cmake-modules-5.102.0
 %patch1 -p1
 
 %build
@@ -91,17 +94,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671034692
+export SOURCE_DATE_EPOCH=1673886278
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake .. -DBUILD_TESTING=OFF
 make  %{?_smp_mflags}
 popd
@@ -114,7 +117,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1671034692
+export SOURCE_DATE_EPOCH=1673886278
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-%{version}/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
@@ -122,11 +125,6 @@ cp %{_builddir}/extra-cmake-modules-%{version}/LICENSES/BSD-2-Clause.txt %{build
 cp %{_builddir}/extra-cmake-modules-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
 cp %{_builddir}/extra-cmake-modules-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/extra-cmake-modules-%{version}/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3 || :
-cp %{_builddir}/extra-cmake-modules-%{version}/modules/ECMQmlModule.cpp.in.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd || :
-cp %{_builddir}/extra-cmake-modules-%{version}/modules/ECMQmlModule.h.in.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd || :
-cp %{_builddir}/extra-cmake-modules-%{version}/tests/ECMQmlModuleTest/qmldir_expected_depends.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd || :
-cp %{_builddir}/extra-cmake-modules-%{version}/tests/ECMQmlModuleTest/qmldir_expected_full.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd || :
-cp %{_builddir}/extra-cmake-modules-%{version}/tests/ECMQmlModuleTest/qmldir_expected_qmlonly.license %{buildroot}/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd || :
 pushd clr-build
 %make_install
 popd
@@ -344,7 +342,6 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
 /usr/share/doc/ECM/html/_sources/module/QtVersionOption.rst.txt
 /usr/share/doc/ECM/html/_sources/toolchain/Android.rst.txt
-/usr/share/doc/ECM/html/_static/_sphinx_javascript_frameworks_compat.js
 /usr/share/doc/ECM/html/_static/basic.css
 /usr/share/doc/ECM/html/_static/classic.css
 /usr/share/doc/ECM/html/_static/default.css
@@ -352,8 +349,6 @@ popd
 /usr/share/doc/ECM/html/_static/documentation_options.js
 /usr/share/doc/ECM/html/_static/ecm.css
 /usr/share/doc/ECM/html/_static/file.png
-/usr/share/doc/ECM/html/_static/jquery-3.6.0.js
-/usr/share/doc/ECM/html/_static/jquery.js
 /usr/share/doc/ECM/html/_static/kde-favicon.ico
 /usr/share/doc/ECM/html/_static/language_data.js
 /usr/share/doc/ECM/html/_static/minus.png
@@ -362,8 +357,6 @@ popd
 /usr/share/doc/ECM/html/_static/searchtools.js
 /usr/share/doc/ECM/html/_static/sidebar.js
 /usr/share/doc/ECM/html/_static/sphinx_highlight.js
-/usr/share/doc/ECM/html/_static/underscore-1.13.1.js
-/usr/share/doc/ECM/html/_static/underscore.js
 /usr/share/doc/ECM/html/find-module/Find7z.html
 /usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html
@@ -458,7 +451,6 @@ popd
 /usr/share/package-licenses/extra-cmake-modules/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-/usr/share/package-licenses/extra-cmake-modules/c4a1f2398de8ed1aa1ff8b696bb274a418879abd
 /usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files man
