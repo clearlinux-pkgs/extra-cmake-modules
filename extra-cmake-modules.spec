@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.103.0
-Release  : 86
+Release  : 87
 URL      : https://download.kde.org/stable/frameworks/5.103/extra-cmake-modules-5.103.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.103/extra-cmake-modules-5.103.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.103/extra-cmake-modules-5.103.0.tar.xz.sig
@@ -94,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676300735
+export SOURCE_DATE_EPOCH=1676831367
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -117,7 +117,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1676300735
+export SOURCE_DATE_EPOCH=1676831367
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-%{version}/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
