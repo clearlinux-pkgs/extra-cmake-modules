@@ -1,6 +1,5 @@
 # This file contains recursive sources that require this package
 SFML
-Vulkan-Loader
 Vulkan-Tools
 akonadi
 akonadi-mime
@@ -58,6 +57,7 @@ libkgapi
 libkscreen
 libksieve
 librealsense
+libwpe
 lxqt-config
 lxqt-panel
 messagelib
@@ -84,5 +84,6 @@ spectacle
 telepathy-qt
 webkitgtk
 webkitgtk50
+webkitgtk60
 wireshark
 xdg-desktop-portal-kde
