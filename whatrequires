@@ -1,10 +1,8 @@
 # This file contains recursive sources that require this package
 SFML
-Vulkan-Tools
 akonadi
 akonadi-mime
 baloo
-blender
 bluedevil
 cantor
 conky
@@ -58,7 +56,6 @@ libksieve
 librealsense
 libwpe
 messagelib
-obs-studio
 oiio
 okular
 openal-soft
@@ -75,6 +72,9 @@ polkit-qt
 powerdevil
 qca-qt5
 qt6base
+qt6multimedia
+qt6wayland
+qt6webengine
 sddm
 simplescreenrecorder
 spectacle
