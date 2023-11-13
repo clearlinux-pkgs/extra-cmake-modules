@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.111.0
-Release  : 95
-URL      : https://download.kde.org/stable/frameworks/5.111/extra-cmake-modules-5.111.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.111/extra-cmake-modules-5.111.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.111/extra-cmake-modules-5.111.0.tar.xz.sig
+Version  : 5.112.0
+Release  : 96
+URL      : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -88,8 +88,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.111.0
-cd %{_builddir}/extra-cmake-modules-5.111.0
+%setup -q -n extra-cmake-modules-5.112.0
+cd %{_builddir}/extra-cmake-modules-5.112.0
 %patch -P 1 -p1
 
 %build
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1698077565
+export SOURCE_DATE_EPOCH=1699884209
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -165,7 +165,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1698077565
+export SOURCE_DATE_EPOCH=1699884209
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-%{version}/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
@@ -244,11 +244,11 @@ popd
 /usr/share/ECM/kde-modules/KDEPackageAppTemplates.cmake
 /usr/share/ECM/kde-modules/KDESetupPrefixScript.cmake
 /usr/share/ECM/kde-modules/appstreamtest.cmake
-/usr/share/ECM/kde-modules/clang-format.cmake
+/usr/share/ECM/kde-modules/clang-format.in
 /usr/share/ECM/kde-modules/kde-git-commit-hooks/clang-format.sh
 /usr/share/ECM/kde-modules/kde-git-commit-hooks/pre-commit.in
-/usr/share/ECM/kde-modules/prefix.sh.cmake
-/usr/share/ECM/kde-modules/prefix.sh.fish.cmake
+/usr/share/ECM/kde-modules/prefix.sh.fish.in
+/usr/share/ECM/kde-modules/prefix.sh.in
 /usr/share/ECM/modules/CheckAtomic.cmake
 /usr/share/ECM/modules/ECMAddAppIcon.cmake
 /usr/share/ECM/modules/ECMAddQch.cmake
