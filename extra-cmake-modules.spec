@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.112.0
-Release  : 97
-URL      : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.112/extra-cmake-modules-5.112.0.tar.xz.sig
+Version  : 5.113.0
+Release  : 98
+URL      : https://download.kde.org/stable/frameworks/5.113/extra-cmake-modules-5.113.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.113/extra-cmake-modules-5.113.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.113/extra-cmake-modules-5.113.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -88,8 +88,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.112.0
-cd %{_builddir}/extra-cmake-modules-5.112.0
+%setup -q -n extra-cmake-modules-5.113.0
+cd %{_builddir}/extra-cmake-modules-5.113.0
 %patch -P 1 -p1
 
 %build
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701954728
+export SOURCE_DATE_EPOCH=1702914793
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -165,7 +165,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701954728
+export SOURCE_DATE_EPOCH=1702914793
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-%{version}/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
@@ -189,6 +189,7 @@ popd
 /usr/share/ECM/cmake/ECMConfig.cmake
 /usr/share/ECM/cmake/ECMConfigVersion.cmake
 /usr/share/ECM/find-modules/ECMFindModuleHelpersStub.cmake
+/usr/share/ECM/find-modules/Find7Zip.cmake
 /usr/share/ECM/find-modules/Find7z.cmake
 /usr/share/ECM/find-modules/FindCanberra.cmake
 /usr/share/ECM/find-modules/FindEGL.cmake
@@ -310,6 +311,7 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/ECM/html/_sources/find-module/Find7Zip.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/Find7z.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindCanberra.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt
@@ -409,6 +411,7 @@ popd
 /usr/share/doc/ECM/html/_static/searchtools.js
 /usr/share/doc/ECM/html/_static/sidebar.js
 /usr/share/doc/ECM/html/_static/sphinx_highlight.js
+/usr/share/doc/ECM/html/find-module/Find7Zip.html
 /usr/share/doc/ECM/html/find-module/Find7z.html
 /usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html
