@@ -10,6 +10,7 @@ colord-kde
 conky
 darktable
 digikam
+extra-cmake-modules
 freedv
 glfw
 kbackup
