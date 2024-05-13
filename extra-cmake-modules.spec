@@ -5,15 +5,15 @@
 # autospec version: v10
 # autospec commit: 5905be9
 #
-# Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
+# Source0 file verified with key 0x2C8DF587A6D4AAC1 (nicolas.fella@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 6.1.0
-Release  : 106
-URL      : https://download.kde.org/stable/frameworks/6.1/extra-cmake-modules-6.1.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/6.1/extra-cmake-modules-6.1.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/6.1/extra-cmake-modules-6.1.0.tar.xz.sig
-Source2  : D7574483BB57B18D.pkey
+Version  : 6.2.0
+Release  : 107
+URL      : https://download.kde.org/stable/frameworks/6.2/extra-cmake-modules-6.2.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/6.2/extra-cmake-modules-6.2.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/6.2/extra-cmake-modules-6.2.0.tar.xz.sig
+Source2  : 2C8DF587A6D4AAC1.pkey
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
@@ -52,10 +52,8 @@ BuildRequires : qttools-dev
 Patch1: better-xdg-dir.patch
 
 %description
-Extra CMake Modules
-*******************
-Introduction
-============
+# Extra CMake Modules
+## Introduction
 The Extra CMake Modules package, or ECM, adds to the modules provided by CMake,
 including ones used by ``find_package()`` to find common software, ones that
 can be used directly in ``CMakeLists.txt`` files to perform common tasks and
@@ -99,9 +97,9 @@ mkdir .gnupg
 chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
-grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) D7574483BB57B18D' gpg.status
-%setup -q -n extra-cmake-modules-6.1.0
-cd %{_builddir}/extra-cmake-modules-6.1.0
+grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) 2C8DF587A6D4AAC1' gpg.status
+%setup -q -n extra-cmake-modules-6.2.0
+cd %{_builddir}/extra-cmake-modules-6.2.0
 %patch -P 1 -p1
 
 %build
@@ -109,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713285460
+export SOURCE_DATE_EPOCH=1715612736
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -179,7 +177,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1713285460
+export SOURCE_DATE_EPOCH=1715612736
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-%{version}/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
