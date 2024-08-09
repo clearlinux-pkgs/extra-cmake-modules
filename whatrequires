@@ -13,6 +13,7 @@ digikam
 extra-cmake-modules
 freedv
 glfw
+gmic
 kbackup
 kcodecs
 kcoreaddons
