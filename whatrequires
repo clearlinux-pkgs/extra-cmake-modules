@@ -12,10 +12,8 @@ darktable
 digikam
 extra-cmake-modules
 freedv
-glfw
 gmic
 kbackup
-kcodecs
 kcoreaddons
 kdeconnect-kde
 kdenlive
